@@ -160,24 +160,6 @@ DO_THUNDER(actionRow) {
 		Run, % runString
 }
 
-; Run a citrix session through Thunder.
-DO_CITRIX(actionRow) {
-	actionRow.data["THUNDERID"] := actionRow.data["CITRIXTHUNDERID"]
-	DO_THUNDER(actionRow)
-}
-
-; Open a homebrew timer (script located in the filepath below).
-TIMER(actionRow) {
-	time := actionRow.data["TIME"]
-	runString := ahkRootPath "\source\standalone\timer\timer.ahk " time
-	
-	; Do it.
-	if(actionRow.isDebug) ; Debug mode.
-		actionRow.debugResult := runString
-	else
-		Run, % runString
-}
-
 
 ; == Other assorted action functions ==
 ; Call a phone number.
